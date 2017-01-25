@@ -5,12 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.List;
 
-import static android.R.id.list;
 
 /**
  * Created by lixiaochi on 18/1/17.
@@ -30,7 +28,9 @@ public class NewsAdapter extends ArrayAdapter {
         View newsItemView = convertView;
         if(newsItemView == null){
             newsItemView = LayoutInflater.from(getContext()).
-                    inflate(R.layout.activity_main,parent,false);
+                    inflate(R.layout.news_items,parent,false);
+            /*inflate(int resource, ViewGroup root, boolean attachToRoot)
+            Inflate a new view hierarchy from the specified xml resource.*/
         }
 
         News currentNew = (News) getItem(position);
@@ -41,6 +41,8 @@ public class NewsAdapter extends ArrayAdapter {
 
         TextView content = (TextView) newsItemView.findViewById(R.id.news_content);
         content.setText(currentNew.getContent());
-        return null;
+
+        //remember to return something.
+        return newsItemView;
     }
 }

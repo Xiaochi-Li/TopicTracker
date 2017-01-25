@@ -1,15 +1,13 @@
 package com.example.android.topictracker;
 
-/**
- * Created by lixiaochi on 18/1/17.
- */
+
 
 public class News {
     private String title;
-    private String content;
+    private String publictime;
     public News(String title, String content){
         this.title = title;
-        this.content = content;
+        this.publictime = content;
     }
 
     public String getTitle(){
@@ -17,6 +15,6 @@ public class News {
     }
 
     public String getContent(){
-        return content;
+        return publictime;
     }
 }

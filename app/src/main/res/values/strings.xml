@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">TopicTracker</string>
+    <string name="setting_title">search words</string>
+    <string name="topic_menu_item">search</string>
+
+    <string name="bot">search</string>
+
+    <string name="search">Type the news topic you want to search below</string>
+
+    <!-- Strings For Number of News Preference [CHAR LIMIT=30] -->
+    <string name="settings_number_of_news_label">Number of News </string>
+    <string name="settings_number_of_news_key" translatable="false">news_number</string>
+    <string name="settings_number_of_news_default" translatable="false">5</string>
+    <string name="number_setting_key">number_preference</string>
+
+    <string name="settings_search_word_label">Topic</string>
+    <string name="settings_search_word_key" translatable="false">Topic</string>
+    <string name="settings_search_word_default" translatable="false">news</string>
+
+
 </resources>
