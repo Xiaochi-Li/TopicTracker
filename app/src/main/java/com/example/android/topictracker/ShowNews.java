@@ -39,7 +39,7 @@ public class ShowNews extends AppCompatActivity implements android.app.LoaderMan
         newsPageGridView.setAdapter(mNewsAdapter);
 
         LoaderManager loaderManager = getLoaderManager();
-        loaderManager.initLoader(1, null, this);
+        loaderManager.initLoader(1, null, this).forceLoad();
         Log.i("initLoader", "Loader1 initialed");
     }
 
