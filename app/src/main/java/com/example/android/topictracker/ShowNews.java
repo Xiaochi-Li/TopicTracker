@@ -15,10 +15,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by lixiaochi on 25/1/17.
- */
-
 public class ShowNews extends AppCompatActivity implements android.app.LoaderManager.LoaderCallbacks<List<News>> {
     private TextView mEmptyStateTextView;
     private View loadingIndicator;
@@ -31,9 +27,18 @@ public class ShowNews extends AppCompatActivity implements android.app.LoaderMan
         setContentView(R.layout.activity_main);
 
 
+
+
+
         //initialize the gridView
         GridView newsPageGridView = (GridView) findViewById(R.id.news_page_grid_view);
         //fill it with news Items.
+
+        //set empty to show when no results are found.
+        mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
+        newsPageGridView.setEmptyView(mEmptyStateTextView);
+
+        loadingIndicator = findViewById(R.id.progress_bar);
 
         mNewsAdapter = new NewsAdapter(this, new ArrayList<News>());
         newsPageGridView.setAdapter(mNewsAdapter);
@@ -59,8 +64,8 @@ public class ShowNews extends AppCompatActivity implements android.app.LoaderMan
 
         Log.i("onCreateLoader", uriBuilder.toString());
 
-        NewsLoader ld =new NewsLoader(ShowNews.this, uriBuilder.toString());
-        return ld;
+
+        return new NewsLoader(ShowNews.this, uriBuilder.toString());
     }
 
     @Override

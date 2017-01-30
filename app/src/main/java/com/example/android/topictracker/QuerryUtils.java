@@ -26,6 +26,8 @@ public class QuerryUtils {
     private QuerryUtils() {
     }
 
+
+    //text url: https://content.guardianapis.com/search?q=ho&format=json&order-by=newest&api-key=test
     public static List<News> fetchNewsData(String requestUrl) {
         URL url = createUrl(requestUrl);
 
@@ -35,8 +37,8 @@ public class QuerryUtils {
         } catch (IOException e) {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
-        List<News> newses = extractFeatureFromJson(jsonResponse);
-        return newses;
+
+        return extractFeatureFromJson(jsonResponse);
     }
 
     private static URL createUrl(String stringUrl) {
@@ -117,7 +119,10 @@ public class QuerryUtils {
 
             JSONObject baseJsonResponse = new JSONObject(newsJSON);
 
-            JSONArray newsArray = baseJsonResponse.getJSONArray("results");
+            JSONObject response = baseJsonResponse.getJSONObject("response");
+
+
+            JSONArray newsArray = response.getJSONArray("results");
 
             for (int i = 0; i < newsArray.length(); i++) {
                 JSONObject currentNews = newsArray.getJSONObject(i);
